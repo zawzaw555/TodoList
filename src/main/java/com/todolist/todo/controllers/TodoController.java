@@ -7,8 +7,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/todos")
 public class TodoController {
-    @GetMapping()
+    // Show todo list
+    @GetMapping("/list")
     public String todoList(){
         return"todos/list";
     }
+
+    // Show add todo list
+    @GetMapping("/add")
+    public String addList(){
+        return "todos/add";
+    }
+
 }

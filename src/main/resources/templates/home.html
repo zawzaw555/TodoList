@@ -3,7 +3,37 @@
 <Header th:replace="includes/partials :: Header"></Header>
 <body>
     <Navbar th:replace="includes/navbar :: Navbar"></Navbar>
-    <h1>Home Page</h1>
+    <div class="container">
+        <div class="mt-5 mb-3 d-flex justify-content-between align-items-center">
+            <h3>Todo List</h1>
+            <span class="me-3">
+                <a href="/todos/add" class="text-decoration-none btn btn-outline-primary">
+                    <i class="fa-regular fa-square-plus fa-lg">
+                    </i>
+                    <span class="text-black">add</span>
+                </a>
+            </span>
+        </div>
+       <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-9">
+                    <span>I have to visit Zoo today.</span>
+                </div>
+                <div class="col-md-3 d-flex justity-content-end gap-4">
+                    <a href="/todos/edit" class="text-decoration-none btn btn-outline-warning">
+                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                        <span class="text-black">Edit</span>
+                    </a>
+                    <a href="/todos/delete" class="text-decoration-none btn btn-outline-danger">
+                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                        <span class="text-black">Delete</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+       </div>
+    </div>
 </body>
 <Footer th:replace="includes/partials :: Footer"></Footer>
 </html>
