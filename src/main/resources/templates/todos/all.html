@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{includes/partials :: head}"></div>
+  <body>
+    <div th:replace="~{includes/navbar :: nav}"></div>
+        <div class="container">
+            <h1 class="mt-5 mb-2">Todos</h1>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <span>I have to visit Zoo today!</span>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="d-flex justify-content-end gap-3 align-items-center list-unstyled mb-0">
+                                <li>
+                                    <a href="#" class="btn btn-warning">
+                                        <i class="fa-regular fa-pen-to-square"></i>
+                                        <span>Edit</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn btn-danger">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                        <span>Delete</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div th:replace="~{includes/partials :: footer}"></div>
+  </body>
+</html>
