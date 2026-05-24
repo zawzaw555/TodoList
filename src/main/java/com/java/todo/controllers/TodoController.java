@@ -1,19 +1,33 @@
 package com.java.todo.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.java.todo.models.Todo;
+import com.java.todo.services.TodoService;
 
 
 
 @Controller
 @RequestMapping("/todos")
 public class TodoController {
+
+    private final TodoService todoService;
+    
+    public TodoController(TodoService todoService) {
+        this.todoService = todoService;
+    }
     // Home All Page
     @GetMapping
-    public String all(){
+    public String all(Model model){
+        List<Todo> todos = todoService.all();
+        model.addAttribute("todos",todos);
         return "todos/all";
     }
 
