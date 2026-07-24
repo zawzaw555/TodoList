@@ -4,43 +4,39 @@
   <body>
     <div th:replace="~{includes/navbar :: nav}"></div>
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-5">
                 <div class="d-flex justify-content-between">
                     <h3 class="mt-5 mb-2 mx-2">Todo-Lists</h3>
                     <span class="mt-5 mb-2">
-                        <a href="/todos/add" class="btn btn-primary">
+                        <a th:href="@{/todos/add}" class="btn btn-primary">
                             <i class="fa-solid fa-plus"></i>Add
                         </a>
                     </span>
                 </div>
-
-                <th:block th:each="todo : ${todos}">
+         <!--       <th:block th:each="todo : ${todos}"> -->
                     <div class="card">
                         <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-md-8">
-                                    <span th:text="${todo.title}">Default</span>
-                                </div>
-                                <div class="col-md-4">
-                                    <ul class="d-flex justify-content-end gap-3 align-items-center list-unstyled mb-0">
+                        	<div class="col-12">
+                            	<div class="d-flex justify-content-between align-items-center">
+                                    <span>Default</span>
+                                    <ul class="d-flex gap-3 list-unstyled">
                                         <li>
-                                            <a th:href="@{/todos/edit/{id}(id=1)}" class="btn btn-warning">
+                                            <a href="#" class="btn btn-warning">
                                                 <i class="fa-regular fa-pen-to-square"></i>
-                                                <span>Edit</span>
                                             </a>
                                         </li>
                                         <li>
-                                            <a th:href="@{/todos/delete/{id}(id=1)}" class="btn btn-danger">
+                                            <a href="#" class="btn btn-danger">
                                                 <i class="fa-solid fa-trash-can"></i>
-                                                <span>Delete</span>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
-                </th:block>
+     <!--        </th:block>  --> 
             </div>
         </div>
     <div th:replace="~{includes/partials :: footer}"></div>
