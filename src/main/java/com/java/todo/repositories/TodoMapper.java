@@ -1,9 +1,10 @@
 package com.java.todo.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.apache.ibatis.annotations.Mapper;
 
 import com.java.todo.models.Todo;
 
-public interface TodoRepo extends JpaRepository<Todo,Long> {
-
+@Mapper
+public interface TodoMapper{
+	int insertTodo(Todo todo);
 }

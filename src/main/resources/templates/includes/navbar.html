@@ -1,23 +1,21 @@
-<div class="container" th:fragment="nav">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">
-                <img src="/images/todo_logo_01.png" height="24" width="24" alt="MS_logo_png">
-                <span>Todo-List</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> 
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/todos">Todo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+<div class="px-5" th:fragment="nav">
+    <nav class="navbar navbar-expand bg-body-tertiary">
+        <a class="navbar-brand" href="/">
+        	<img src="/images/todo_logo_01.png" height="24" width="24" alt="MS_logo_png">
+            	<span>Todo-List</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        	<span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        	<ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+            	<li class="nav-item fs-5">
+                	<a class="nav-link active" aria-current="page" href="/todos">Todo</a>
+                </li>
+                <li class="nav-item fs-5">
+                	<a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+       </div>
     </nav>
 </div>
