@@ -61,18 +61,5 @@ public class TodoController {
         
         return "redirect:/todos";
     }
-/*
-    // Edit Page
-    @GetMapping("edit/{id}")
-    public String edit(@PathVariable Long id) {
-        return "todos/edit";
-    }
-
-    // Edit Page Confirm
-    @PostMapping("edit/{id}")
-    public String update(@PathVariable Long id) {
-        return "redirect:/todos";
-    }
-	*/
     
 }
