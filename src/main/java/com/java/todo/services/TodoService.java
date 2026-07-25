@@ -1,5 +1,7 @@
 package com.java.todo.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.java.todo.models.Todo;
@@ -15,5 +17,9 @@ public class TodoService {
 	
 	public void addService(Todo todo) {
 		todoMapper.insertTodo(todo);
+	}
+	
+	public List<Todo> selectService() {
+		return todoMapper.selectTodo();
 	}
 }
