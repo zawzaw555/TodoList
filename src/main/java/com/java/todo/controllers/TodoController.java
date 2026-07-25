@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -24,6 +25,7 @@ public class TodoController {
     public String all(Model model){
     	
     	model.addAttribute("todoList",todoService.selectService());
+    	
         return "todos/all";
     }
 
@@ -31,12 +33,32 @@ public class TodoController {
     public String  getAdd(Model model){
     	
     	model.addAttribute("todo",new Todo());
+    	
         return "todos/add";
     }
 
     @PostMapping("/add")
     public String postAdd(@ModelAttribute Todo todo){
+    	
     	todoService.addService(todo);
+    	
+        return "redirect:/todos";
+    }
+    
+    @PostMapping("/complete/{id}")
+    public String completeTodo(@PathVariable Long id) {
+    	
+    	todoService.completeTodo(id);
+    	
+    	return "redirect:/todos";
+    }
+    
+    // Delete Page
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id) {
+    	
+        todoService.deleteTodo(id);
+        
         return "redirect:/todos";
     }
 /*
@@ -51,12 +73,6 @@ public class TodoController {
     public String update(@PathVariable Long id) {
         return "redirect:/todos";
     }
-
-    // Delete Page
-    @GetMapping("delete/{id}")
-    public String delete(@PathVariable Long id) {
-        System.out.println("Delete Todo List" + id);
-        return "redirect:/todos";
-    }
-    */
+	*/
+    
 }
