@@ -4,7 +4,7 @@
   <body>
     <div th:replace="~{includes/navbar :: nav}"></div>
         <div class="row justify-content-center">
-            <div class="col-md-5">
+            <div class="col-md-8">
                 <div class="d-flex justify-content-between">
                     <h3 class="mt-5 mb-2 mx-2">Todo-Lists</h3>
                     <span class="mt-5 mb-2">
@@ -13,13 +13,28 @@
                         </a>
                     </span>
                 </div>
-         <!--       <th:block th:each="todo : ${todos}"> -->
-                    <div class="card">
-                        <div class="card-body">
-                        	<div class="col-12">
-                            	<div class="d-flex justify-content-between align-items-center">
-                                    <span>Default</span>
-                                    <ul class="d-flex gap-3 list-unstyled">
+                <table class="col-12">
+                	<thead>
+                		<tr class="text-center">
+                			<th>ID</th>
+                			<th>タイトル</th>
+                			<th>コメント</th>
+                			<th>日付</th>
+                		</tr>
+                	</thead>
+                	<tbody>
+                		<tr th:each="todo : ${todoList}" class="text-center">
+                			<td th:text="${todo.id}"></td>
+                			<td th:text="${todo.title}"></td>
+                			<td th:text="${todo.comment}"></td>
+                			<td th:text="${todo.date}"></td>
+                			<td>
+                				<ul class="d-flex justify-content-end align-content-center gap-3 list-unstyled">
+                                        <li>
+                                            <a href="#" class="btn btn-success">
+                                                <i class="fa-solid fa-check"></i>
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="#" class="btn btn-warning">
                                                 <i class="fa-regular fa-pen-to-square"></i>
@@ -31,12 +46,10 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-     <!--        </th:block>  --> 
+                			</td>
+                		</tr>
+                	</tbody>
+                </table>
             </div>
         </div>
     <div th:replace="~{includes/partials :: footer}"></div>
