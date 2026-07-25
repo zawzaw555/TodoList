@@ -23,29 +23,34 @@
                 		</tr>
                 	</thead>
                 	<tbody>
-                		<tr th:each="todo : ${todoList}" class="text-center">
+                		<tr th:each="todo : ${todoList}" 
+                			class="text-center"
+                			th:classappend="${todo.completed} ? ' text-decoration-line-through' : ''">
                 			<td th:text="${todo.id}"></td>
                 			<td th:text="${todo.title}"></td>
                 			<td th:text="${todo.comment}"></td>
-                			<td th:text="${todo.date}"></td>
+                			<td th:text="${todo.todoDate}"></td>
                 			<td>
                 				<ul class="d-flex justify-content-end align-content-center gap-3 list-unstyled">
-                                        <li>
-                                            <a href="#" class="btn btn-success">
-                                                <i class="fa-solid fa-check"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="btn btn-warning">
-                                                <i class="fa-regular fa-pen-to-square"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="btn btn-danger">
-                                                <i class="fa-solid fa-trash-can"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
+                                	<li>
+                                        <form th:action="@{/todos/complete/{id}(id=${todo.id})}"
+                						method="post">
+                                        	<button type="submit" class="btn btn-success">
+                                        		<i class="fa-solid fa-check"></i>
+                                        	</button>
+                                        </form>
+                                    </li>
+                                    <li>
+                                    	<a href="#" class="btn btn-warning">
+                                        	<i class="fa-regular fa-pen-to-square"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                    	<a th:href="@{/todos/delete/{id}(id=${todo.id})}" class="btn btn-danger">
+                                        	<i class="fa-solid fa-trash-can"></i>
+                                     	</a>
+                                    </li>
+                            	</ul>
                 			</td>
                 		</tr>
                 	</tbody>
