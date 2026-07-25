@@ -21,7 +21,9 @@ public class TodoController {
 
     // Home All Page
     @GetMapping
-    public String all(){
+    public String all(Model model){
+    	
+    	model.addAttribute("todoList",todoService.selectService());
         return "todos/all";
     }
 

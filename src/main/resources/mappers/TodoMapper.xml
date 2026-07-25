@@ -5,6 +5,17 @@
 
 <mapper namespace="com.java.todo.repositories.TodoMapper">
     <!-- SQLを書く場所 -->
+    <select id="selectTodo"
+    		resultType="com.java.todo.models.Todo">
+    	SELECT
+    		id,
+    		title,
+    		comment,
+    		todo_date AS date
+    	FROM todos
+    	ORDER BY id DESC
+    		
+    </select>
     <insert id="insertTodo"
     		parameterType="com.java.todo.models.Todo"
     		useGeneratedKeys="true"
