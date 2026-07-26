@@ -5,13 +5,20 @@
 
 <mapper namespace="com.java.todo.repositories.TodoMapper">
     <!-- SQLを書く場所 -->
+    <resultMap id="todoResultMap" type="com.java.todo.models.Todo">
+    	<id property="id" column="id"/>
+    	<result property="title" column="title"/>
+    	<result property="comment" column="comment"/>
+    	<result property="todoDate" column="todo_date"/>
+	</resultMap>
     <select id="selectTodo"
     		resultType="com.java.todo.models.Todo">
     	SELECT
     		id,
     		title,
     		comment,
-    		todo_date AS date
+    		todo_date AS todoDate,
+    		completed
     	FROM todos
     	ORDER BY id DESC
     		
@@ -29,7 +36,19 @@
     		VALUES (
     			#{title},
     			#{comment},
-    			#{date}
+    			#{todoDate}
     		);
-    		</insert>
+    </insert>
+    
+    <update id="updateCompleted">
+    	UPDATE todos
+    	SET completed = TRUE
+    	WHERE id = #{id}
+    </update>
+    
+    <delete id="deleteTodo">
+    	DELETE FROM 
+    			todos
+    	WHERE id = #{id}
+    </delete>
 </mapper>

@@ -22,4 +22,12 @@ public class TodoService {
 	public List<Todo> selectService() {
 		return todoMapper.selectTodo();
 	}
+	
+	public void completeTodo(Long id) {
+		todoMapper.updateCompleted(id);
+	}
+	
+	public void deleteTodo(Long id) {
+		todoMapper.deleteTodo(id);
+	}
 }

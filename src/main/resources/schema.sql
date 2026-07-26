@@ -1,10 +1,9 @@
-DROP TABLE IF EXISTS todo_seq;
-DROP TABLE IF EXISTS todo;
 DROP TABLE IF EXISTS todos;
 
 CREATE TABLE todos (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     comment VARCHAR(500),
-    todo_date DATE NOT NULL
+    todo_date DATE NOT NULL,
+    completed BOOLEAN NOT NULL DEFAULT FALSE
 );

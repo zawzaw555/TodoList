@@ -14,5 +14,7 @@ public class Todo {
     private String comment;
     
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate date;
+    private LocalDate todoDate;
+    
+    private boolean completed;
 }
